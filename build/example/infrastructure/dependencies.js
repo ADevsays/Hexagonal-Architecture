@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userController = exports.emailSenderClass = exports.mockUserRepository = exports.fakeEmailSender = void 0;
+const emailSenderClass_1 = require("../application/emailSenderClass");
+const fakeEmailSender_1 = require("./fakeEmailSender");
+const mockUserRepository_1 = require("./mockUserRepository");
+const userController_1 = require("./userController");
+exports.fakeEmailSender = new fakeEmailSender_1.FakeEmailSender();
+exports.mockUserRepository = new mockUserRepository_1.MockUserRepository();
+exports.emailSenderClass = new emailSenderClass_1.EmailSenderClass(exports.mockUserRepository, exports.fakeEmailSender);
+exports.userController = new userController_1.UserController(exports.emailSenderClass);

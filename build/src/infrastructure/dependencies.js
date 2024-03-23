@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.userController = void 0;
+const createProduct_1 = require("../application/createProduct");
+const getProduct_1 = require("../application/getProduct");
+const productDB_1 = require("./productDB");
+const userController_1 = require("./userController");
+const productDB = new productDB_1.ProductDB();
+const getProduct = new getProduct_1.GetProduct(productDB);
+const createProduct = new createProduct_1.CreateProduct(productDB);
+exports.userController = new userController_1.UserController(getProduct, createProduct);
